@@ -304,57 +304,36 @@
         </div>
     </section>
 
-    <!-- ==================== قسم فيديوهات المؤتمر ==================== -->
-    <section id="video-showcase" class="py-16 md:py-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-navy-gradient rounded-3xl p-6 sm:p-10 text-white shadow-2xl border border-gold-500/30 space-y-10">
+    <!-- ==================== قسم فيديو المؤتمر ==================== -->
+    <section id="video-showcase" class="py-16 md:py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-navy-gradient rounded-3xl p-6 sm:p-10 text-white shadow-2xl border border-gold-500/30 space-y-8">
             <div class="text-center max-w-2xl mx-auto">
                 <span class="inline-flex items-center gap-2 bg-gold-500/20 text-gold-300 border border-gold-400/40 font-heading font-bold text-xs px-4 py-1.5 rounded-full mb-3">
                     <i class="fa-solid fa-film"></i>
-                    <span>العروض المرئية للمؤتمر</span>
+                    <span>العرض المرئي للمؤتمر</span>
                 </span>
                 <h2 class="font-heading font-black text-2xl sm:text-4xl mb-2">
-                    فيديوهات المؤتمر التربوي الرابع للتوجيه المهني
+                    فيديو المؤتمر التربوي الرابع للتوجيه المهني
                 </h2>
                 <p class="text-gray-300 text-sm sm:text-base">
                     «اختيارك... نحو التميز المهني» — بإنتاج وتقديم قسم تكنولوجيا المعلومات (BTEC IT) في مدرسة الخنساء الثانوية الشاملة المختلطة بقيادة مديرة المدرسة أروى النعيمات.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- الفيديو الأول: العرض المرئي التعريفي للمؤتمر -->
-                <div class="bg-navy-950/70 rounded-2xl p-4 sm:p-5 border border-gold-500/30 space-y-3">
-                    <div class="text-right">
-                        <span class="inline-block text-[11px] font-heading font-bold text-gold-300 bg-gold-500/15 border border-gold-400/30 px-3 py-1 rounded-full mb-1.5">
-                            العرض التعريفي (62 ثانية)
-                        </span>
-                        <h3 class="font-heading font-extrabold text-lg sm:text-xl text-white">
-                            فيديو المؤتمر التربوي الرابع للتوجيه المهني
-                        </h3>
-                    </div>
-                    <div id="video-player-container" class="rounded-2xl overflow-hidden border-2 border-gold-400/50 shadow-xl bg-navy-950">
-                        <video id="conference-video" controls preload="metadata" class="w-full aspect-video bg-black">
-                            <source id="conference-video-source" src="img/video_1.mp4" type="video/mp4">
-                            متصفحك لا يدعم تشغيل الفيديو المباشر.
-                        </video>
-                    </div>
+            <div class="max-w-3xl mx-auto bg-navy-950/70 rounded-2xl p-4 sm:p-5 border border-gold-500/30 space-y-3">
+                <div class="text-right">
+                    <span class="inline-block text-[11px] font-heading font-bold text-gold-300 bg-gold-500/15 border border-gold-400/30 px-3 py-1 rounded-full mb-1.5">
+                        العرض التعريفي (62 ثانية)
+                    </span>
+                    <h3 class="font-heading font-extrabold text-lg sm:text-xl text-white">
+                        فيديو المؤتمر التربوي الرابع للتوجيه المهني
+                    </h3>
                 </div>
-
-                <!-- الفيديو الثاني: نبض الخنساء -->
-                <div class="bg-navy-950/70 rounded-2xl p-4 sm:p-5 border border-gold-500/30 space-y-3">
-                    <div class="text-right">
-                        <span class="inline-block text-[11px] font-heading font-bold text-gold-300 bg-gold-500/15 border border-gold-400/30 px-3 py-1 rounded-full mb-1.5">
-                            إنتاج مدرسي
-                        </span>
-                        <h3 class="font-heading font-extrabold text-lg sm:text-xl text-white">
-                            نبض الخنساء
-                        </h3>
-                    </div>
-                    <div id="nabd-alkhansa-player-container" class="rounded-2xl overflow-hidden border-2 border-gold-400/50 shadow-xl bg-navy-950">
-                        <video id="nabd-alkhansa-video" controls preload="metadata" class="w-full aspect-video bg-black">
-                            <source id="nabd-alkhansa-video-source" src="img/video_2.mp4" type="video/mp4">
-                            متصفحك لا يدعم تشغيل الفيديو المباشر.
-                        </video>
-                    </div>
+                <div id="video-player-container" class="rounded-2xl overflow-hidden border-2 border-gold-400/50 shadow-xl bg-navy-950">
+                    <video id="conference-video" controls preload="metadata" class="w-full aspect-video bg-black">
+                        <source id="conference-video-source" src="img/video_1.mp4" type="video/mp4">
+                        متصفحك لا يدعم تشغيل الفيديو المباشر.
+                    </video>
                 </div>
             </div>
         </div>
@@ -535,7 +514,7 @@
                 </div>
             </div>
 
-            <!-- بطاقة البوستر التوعوي: تعرض img/parent-poster.jpeg عند توفره أو بطاقة بوستر متكاملة بنفس الروح البصرية -->
+            <!-- بطاقة البوستر التوعوي -->
             <div class="lg:col-span-6">
                 <div class="rounded-3xl overflow-hidden border-2 border-gold-500/40 shadow-lg bg-ivory">
                     <img id="parent-poster-img"
@@ -545,7 +524,6 @@
                          onload="onMediaImageLoad('parent-poster-img', 'parent-poster-fallback')"
                          onerror="onMediaImageError('parent-poster-img', 'parent-poster-fallback')">
 
-                    <!-- بطاقة بوستر بديلة متكاملة وغنية بصرياً -->
                     <div id="parent-poster-fallback" class="p-6 sm:p-7 bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 text-white space-y-5">
                         <div class="flex flex-wrap items-center justify-between gap-2 border-b border-gold-500/30 pb-3">
                             <div>
@@ -1224,7 +1202,7 @@
 
     <!-- مشغل موسيقى الخلفية مع زر تحكم للزائر -->
     <audio id="bg-music" loop preload="metadata">
-       <source src="img/song.mp3" type="audio/mp3">
+       <source src="img/song.mp3" type="audio/mpeg">
     </audio>
 
     <button id="bg-music-btn" type="button" onclick="toggleBackgroundMusic()"
@@ -1252,6 +1230,7 @@
         function toggleBackgroundMusic() {
             if (!bgMusic) return;
             if (bgMusic.paused) {
+                bgMusic.load();
                 bgMusic.play().then(() => updateBgMusicUI(true)).catch(() => {});
             } else {
                 bgMusic.pause();
