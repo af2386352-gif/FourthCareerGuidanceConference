@@ -1200,8 +1200,8 @@
         });
     </script>
 
-    <!-- مشغل موسيقى الخلفية مع زر تحكم للزائر -->
-    <audio id="bg-music" loop preload="metadata">
+    <!-- مشغل موسيقى الخلفية مع محاولة تشغيل مباشر وتشغيل عند أول تفاعل -->
+    <audio id="bg-music" loop preload="auto" autoplay>
        <source src="img/song.mp3" type="audio/mpeg">
     </audio>
 
@@ -1216,6 +1216,7 @@
         const bgMusicBtn = document.getElementById("bg-music-btn");
         const bgMusicIcon = document.getElementById("bg-music-icon");
         const bgMusicLabel = document.getElementById("bg-music-label");
+        let isVideoPlaying = false;
 
         function updateBgMusicUI(isPlaying) {
             if (isPlaying) {
@@ -1227,22 +1228,56 @@
             }
         }
 
+        function playBackgroundMusic() {
+            if (!bgMusic || isVideoPlaying) return;
+            bgMusic.play().then(() => {
+                updateBgMusicUI(true);
+            }).catch(() => {
+                updateBgMusicUI(false);
+            });
+        }
+
         function toggleBackgroundMusic() {
             if (!bgMusic) return;
             if (bgMusic.paused) {
-                bgMusic.load();
-                bgMusic.play().then(() => updateBgMusicUI(true)).catch(() => {});
+                isVideoPlaying = false;
+                playBackgroundMusic();
             } else {
                 bgMusic.pause();
                 updateBgMusicUI(false);
             }
         }
 
+        // محاولة التشغيل المباشر عند تحميل الصفحة
+        window.addEventListener("DOMContentLoaded", () => {
+            playBackgroundMusic();
+        });
+
+        // تشغيل تلقائي عند أول نقرة أو لمسة للزائر في حال حظر المتصفح التشغيل الفوري
+        function handleFirstInteraction() {
+            if (bgMusic && bgMusic.paused && !isVideoPlaying) {
+                playBackgroundMusic();
+            }
+            document.removeEventListener("pointerdown", handleFirstInteraction);
+            document.removeEventListener("keydown", handleFirstInteraction);
+        }
+        document.addEventListener("pointerdown", handleFirstInteraction, { once: true });
+        document.addEventListener("keydown", handleFirstInteraction, { once: true });
+
         // إيقاف موسيقى الخلفية تلقائياً عند تشغيل أي فيديو في الصفحة
         document.addEventListener("play", (event) => {
-            if (event.target && event.target.tagName === "VIDEO" && bgMusic && !bgMusic.paused) {
-                bgMusic.pause();
-                updateBgMusicUI(false);
+            if (event.target && event.target.tagName === "VIDEO") {
+                isVideoPlaying = true;
+                if (bgMusic && !bgMusic.paused) {
+                    bgMusic.pause();
+                    updateBgMusicUI(false);
+                }
+            }
+        }, true);
+
+        document.addEventListener("pause", (event) => {
+            if (event.target && event.target.tagName === "VIDEO") {
+                isVideoPlaying = false;
             }
         }, true);
     </script>
